@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pacas | Reviews</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <%= favicon_link_tag asset_path('p-favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+
+    <%= stylesheet_link_tag    'pacas', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <% unless current_page?('/reviews') %>
+
+      <nav>
+        <ul>
+          <a href="/"><%= image_tag("paca.png", class: "jlogo") %></a>
+          <li><a href="/reviews">Published <span class="do">Reviews</span></a></li>
+          <li class="do"><a href="/reviews/new">New Review</a></li>
+          <li class="do"><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        </ul>
+      </nav>
+      <% end %>
+    <% end %>
+    <div class="page">
+    <%= yield %>
+  </div>
+  </body>
+</html>
+
+<script>
+  $(document).ajaxSend(function(e, xhr, options) {
+    var token = $("meta[name='csrf-token']").attr("content");
+    xhr.setRequestHeader("X-CSRF-Token", token);
+  });
+</script>

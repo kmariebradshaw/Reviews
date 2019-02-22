@@ -1,36 +1,59 @@
 /*general*/
 @font-face {
-  font-family: 'Gilroy';
-  src: image-url('Gilroy-ExtraBold.otf'); 
-  font-weight: 900; 
+  font-family: 'Quicksand';
+  src: url('Quicksand-Bold.ttf'); 
+  font-weight: 700; 
   font-style: normal;
 }
 @font-face {
-  font-family: 'Gilroy';
-  src: image-url('Gilroy-Light.otf'); 
+  font-family: 'Quicksand';
+  src: url('Quicksand-Bold.ttf'); 
   font-weight: 300; 
   font-style: normal;
 }
-$green: #6DCDB8;
-$beige: #F9F2ED;
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Quicksand-Regular.ttf'); 
+  font-weight: 400; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Quicksand-Medium.ttf'); 
+  font-weight: 500; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Handsdown';
+  src: url('HandsDown.otf'); 
+  font-weight: 400; 
+  font-style: normal;
+}
+h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Quicksand', sans-serif; }
+.accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
+
+$purple: #fcf9fd;
+$white: #Fff;
 $lightgray: #F9F7F7;
-$darkgray: #545359;
+$darkgray: #7b8284;
 body { 
   margin: 0;
   color: $darkgray;
 }
-h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
-p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
+.fw { width: 100%;}
+.fdc { flex-direction: column; }
+.fh { height: 100vh; }
 a {color: $darkgray;}
 .ttu { text-transform: uppercase; }
 .tac { text-align: center; }
 .vam { vertical-align: middle; }
 .ib { display: inline-block; }
 .jcc {justify-content: center;}
-.text-green { color: $green; }
-.background-green { background-color: $green; }
-.background-beige { background-color: $beige; }
-.text-white { color: #fff; }
+.text-green { color: $darkgray; }
+.background-green { background-color: $purple; }
+.background-beige { background-color: $white; }
+.text-white { color: 
+  $darkgray; }
 .ttl { text-transform: lowercase; }
 .flex-container-no, .flex-container{
   display: flex;
@@ -85,7 +108,7 @@ a {text-decoration: none;}
 .gekks-employee form {
     padding: 50px;
 }
-.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
+.jlogo { width: 100px; vertical-align: middle; margin: 0px 20px 0px 20px; float: left;}
 
 
 }
@@ -138,7 +161,7 @@ a {text-decoration: none;}
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    background: $green;
+    background: $darkgray;
     padding: 10px;
     input {
     font-size: 14pt;
@@ -153,7 +176,7 @@ a {text-decoration: none;}
 $unchecked-star: '\2606';
 $unchecked-color: $darkgray;
 $checked-star: '\2605';
-$checked-color: $green;
+$checked-color: $darkgray;
 .star-cb-group {
   /* remove inline-block whitespace */
   font-size: 0;
@@ -187,7 +210,7 @@ $checked-color: $green;
       & + label:hover ~ label:before,
       & + label:hover:before {
       content: $checked-star;
-      color: $green;
+      color: $darkgray;
       text-shadow: 0 0 1px #333;
     }
   }
@@ -294,18 +317,4 @@ ul {
     font-size: 10pt;
     vertical-align: middle;
   }
-}
-
-.circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  margin: 2.5px;
-  display: inline-block;
-  background: $darkgray;
-  vertical-align: middle;
-}
-body div section .current-review {
-  width: 15px;
-  height: 15px;
 }

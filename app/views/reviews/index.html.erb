@@ -6,8 +6,12 @@
 </section>
 <section class="main">
   <h2 class="tac text-green">Staff Favorites</h2>
-  <% @favorited_reviews.each do | review | %> 
-    <div class="flex-container">
+  <% @favorited_reviews.each_with_index do | review, index | %> 
+    <% if index == 0 %>
+      <div class="flex-container">
+    <% else %>
+      <div class="flex-container" style="display: none;">
+    <% end %>
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
          <% if review.author_last %>
@@ -35,6 +39,15 @@
       </div>
     </div>
     <% end %>
+    <div class="accent-padding tac fw">
+      <div class="circle current-review"></div>
+      <% @favorited_reviews.each_with_index do | review, index |  %>
+        <% unless index == 0 %> 
+        <div class="circle"></div>
+        <% end %> 
+      <% end %> 
+      </div>
+    </div>
   </section>
   <section class="background-beige main">
   <h2 class="tac">Live Stream</h2>
