@@ -1,13 +1,18 @@
 
-<section class="accent-padding background-green page-header">
+<section class="accent-padding background-green page-header" id="public-reviews">
   <h1 class="tac text-white nm">Reviews</h1>
   <h2 class="tac nm"><%= number_with_delimiter(@positive_review_count, :delimiter => ',') %>
  reviews and counting</h2>
 </section>
 <section class="main">
   <h2 class="tac text-green">Staff Favorites</h2>
-  <% @favorited_reviews.each do | review | %> 
-    <div class="flex-container">
+  <div>
+  <% @favorited_reviews.each_with_index do | review, index | %> 
+    <% if index == 0 %>
+      <div class="flex-container staff-favorites visible-review" id="<%=index%>">
+    <% else %>
+      <div class="flex-container staff-favorites" id="<%=index%>"style="display: none;">
+    <% end %>
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
          <% if review.author_last %>
@@ -35,6 +40,16 @@
       </div>
     </div>
     <% end %>
+    </div>
+    <div class="accent-padding tac fw" id="circle-wrapper">
+      <div class="circle current-review" data-review-source="#0"></div>
+      <% @favorited_reviews.each_with_index do | review, index |  %>
+        <% unless index == 0 %> 
+        <div class="circle" data-review-source="#<%= index %>"></div>
+        <% end %> 
+      <% end %> 
+      </div>
+    </div>
   </section>
   <section class="background-beige main">
   <h2 class="tac">Live Stream</h2>
