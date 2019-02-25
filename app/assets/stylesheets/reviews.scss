@@ -305,6 +305,7 @@ ul {
   background: $darkgray;
   vertical-align: middle;
 }
+#circle-wrapper { box-sizing: border-box; }
 body div section .current-review {
   width: 15px;
   height: 15px;
