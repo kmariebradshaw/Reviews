@@ -46,3 +46,33 @@
     </div> 
   <% end %>
 </div>
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+  };
+
+
+$(document).ready(function() {
+  var i = getUrlParameter('rating'); 
+  if (i) {
+    $('#rating-' + i + '').first().prop('checked', true);;
+  }
+  else  {
+    console.log('no rating params')
+  }
+
+})
+
+
+</script>
