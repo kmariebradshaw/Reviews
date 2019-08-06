@@ -24,7 +24,8 @@ class ReviewsController < ApplicationController
     if !Date.today.monday?
      @need_response = Review.where("rating < ?", 4).where("DATE(created_at) = ?", Date.yesterday)
     else 
-      @need_response = Review.where("rating < ?", 4).where("DATE(created_at) = ?", Date.yesterday)
+      @friday = Date.today - 3 
+      @need_response = Review.where("rating < ?", 4).where(:created_at => @friday.beginning_of_day..Date.yesterday.end_of_day)
     end 
    respond_to do |format|
     format.html
