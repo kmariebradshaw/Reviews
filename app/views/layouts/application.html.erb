@@ -24,7 +24,9 @@
           <a href="/"><%= image_tag("jlogo.png", class: "jlogo") %></a>
           <li><a href="/reviews">Published <span class="do">Reviews</span></a></li>
           <li class="do"><a href="/reviews/new">New Review</a></li>
-          <li class="do"><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></li>
+          <li class="do"><%= link_to("Download All", reviews_path(format: :csv, type: 1), class: "",) %></li>
+          <li class="do"><%= link_to("Daily Responses", reviews_path(format: :csv, type: 2), class: "",) %></li>
+
           <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </nav>

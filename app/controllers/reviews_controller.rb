@@ -21,10 +21,21 @@ class ReviewsController < ApplicationController
     @reviewsall = Review.all.order("created_at DESC")
     @favorited_reviews = Review.all.where(:staff_favorite => true)
     @positive_review_count = Review.where("rating > ?", 3).count()
+    if !Date.today.monday?
+     @need_response = Review.where("rating < ?", 4).where("DATE(created_at) = ?", Date.yesterday)
+    else 
+      @friday = Date.today - 3 
+      @need_response = Review.where("rating < ?", 4).where(:created_at => @friday.beginning_of_day..Date.yesterday.end_of_day)
+    end 
    respond_to do |format|
     format.html
-    format.csv { send_data @reviewsall.to_csv, filename: "Reviews-#{Date.today}.csv" }
+    if params[:type] == "1"
+      format.csv { send_data @reviewsall.to_csv, filename: "Reviews-#{Date.today}.csv" }
+    end 
+    if params[:type] == "2"
+      format.csv { send_data @need_response.to_csv, filename: "Reviews-#{Date.today}.csv" }
     end
+  end 
   end 
   def update
     @review = Review.find(params[:id]) 
