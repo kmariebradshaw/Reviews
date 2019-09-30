@@ -91,43 +91,54 @@
   <h2 class="tac">Latest Reviews</h2>
   <% @reviews.each do | review | %> 
     <% if review.status != "pending" && review.staff_favorite != true %>
-    <div class="flex-container lazy">
-      <div class="half">
-        <h3 class="nmb"><%= review.author_first %> 
-          <% if review.author_last %>
-            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+      <div class="flex-container lazy">
+        <div class="half">
+          <h3 class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+            <% end %>
+            <span class="text-green star-wrapper">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+            </span>
+          </h3>
+          <div class="mo">
+            <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+            <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+            <p class="subscript nmt"><span><%= review.status %></span></p>
+          </div>
+          <p class="nmb"><%= review.text %></p>
+          <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :staff_favorite, :value => true %>
+            <%= fa.submit "favorite?", class: "subscript ib decision favorited display-fav" %>
           <% end %>
-          <span class="text-green star-wrapper">
-          <% review.rating.times do%>
-            ★
-          <% end %>
-          </span></h3>
-           <div class="mo">
-          <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
-          <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-          <p class="subscript nmt"><span><%= review.status %></span></p>
-
         </div>
-        <p class="nmb"><%= review.text %></p>
-         <%= form_for(review, remote: true) do |fa| %>
-          <%= fa.hidden_field :staff_favorite, :value => true %>
-          <%= fa.submit "favorite?", class: "subscript ib decision favorited display-fav" %>
+        <div class="half tar" id="all-reviews">
+          <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
+          <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+          <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+            <%= fa.submit "useful? ♡", class: "useful nmb" %>
+            <p class="ib subscript upvote nmb"><%= review.vote %></p>
+          <% end %> 
+          <p class="subscript nmt do status"><span><%= review.status %></span></p>
+          <% if review.status == "hidden" %>
+            <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
+              <%= fa.hidden_field :status, :value => "approved" %>
+              <%= fa.submit "✓", class: "text-green decision-change ib" %>
+            <% end %>
+          <% else %>
+            <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+              <%= fa.hidden_field :status, :value => "hidden" %>
+              <%= fa.submit "⨉", class: "decision-change ib" %>
+            <% end %>
           <% end %>
+        </div>
       </div>
-      <div class="half tar" id="all-reviews">
-        <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
-        <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-        <%= form_for(review, remote: true) do |fa| %>
-        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
-        <p class="subscript nmt do"><span><%= review.status %></span></p>
-      <% end %>
-      </div>
-    </div>
     <% end %>
    <% end %>
-       <%= will_paginate @reviews %>
-
+   <%= will_paginate @reviews %>
   </section>
 
 <script>
@@ -144,11 +155,22 @@
       $('.decision-feedback').removeClass('text-red').addClass('text-green').text('approved & favorited').show();
     }
   })
-
+  $('.change').submit(function() {
+    if ($(this).hasClass("prev-den")) {
+    var c =  confirm("This will make the review public, are you sure you want to continue?"); 
+    }
+    else {
+      var c = confirm("This will hide the review, are you sure you want to continue?"); 
+    }
+    var status = $(this).prev('.status').children()
+    console.log(status);
+    $(status).text($(status).text() == "hidden" ? "approved" : "hidden"); 
+    $(this).hide(); 
+    return c; 
+  }); 
   $('.useful').click(function() {
     $(this).attr("value", "♥"); 
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
 </script>
-<!-- lazy load  -->

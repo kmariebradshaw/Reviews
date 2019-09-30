@@ -96,7 +96,7 @@ a {text-decoration: none;}
   .flex-container { display: block; }
   .useful { padding: 0; }
   .flex-container .half { width: 100%; }
-  .do { display: none; }
+  .do { display: none !important; }
   .accent-padding { padding: 10px; }
   .half { width: 100%; }
   .jlogo {
@@ -237,6 +237,10 @@ $checked-color: $green;
 #pending-reviews {
   border-bottom: 2px solid $lightgray;
 }
+.decision-change { 
+  font-size: 12pt; 
+  margin-left: 5px;
+}
 .display-fav {
     font-weight: lighter;
     font-size: 10pt;
@@ -244,6 +248,7 @@ $checked-color: $green;
     padding: 10px 0;
     cursor: pointer;
 }
+.status { display:inline; }
 .rex {
   margin-left: -100px;
   width: 100px;
