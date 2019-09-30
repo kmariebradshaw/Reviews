@@ -27,15 +27,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise'
+gem "devise", ">= 4.7.1"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem "rubyzip", ">= 1.2.2"
+gem "rubyzip", ">= 1.3.0"
 gem "activestorage", "= 5.2.2.1"
 gem "rack", ">= 2.0.6"
 gem "loofah", ">= 2.2.3"
 gem "railties", ">= 5.2.2.1"
 gem "actionview", ">= 5.2.2.1"
+gem "nokogiri", ">= 1.10.4"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
