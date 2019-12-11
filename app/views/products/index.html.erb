@@ -5,6 +5,11 @@
 <% @products.each do | product | %>
 	<p><%= product.title %>: <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Delete', product_path(product),
               method: :delete,
-              data: { confirm: 'This will delete all associated reviews, are you sure?' } %></td> </p>
+              data: { confirm: 'This will delete all associated reviews, are you sure?' } %></td> 
+              <% if product.status == "approved" %> |
+ 				Archive </p>
+    		 <% else %>
+    		 	| Display </p>
+    		 <% end %>
 <% end %> 
 </section>
