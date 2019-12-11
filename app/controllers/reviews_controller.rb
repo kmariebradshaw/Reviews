@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 	
   def new 
     @review = Review.new()
+    @product_approved = Product.where(:status => "approved")
 	end 
   def create
     @review = Review.new(review_params)

@@ -29,7 +29,7 @@
       <%= f.text_field :author_last %>
     <% end %>
     <h3 class="text-green">Product:</h3>
-      <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
+      <%= f.collection_select :product_id, @product_approved, :id, :title, {prompt: "Select Product"} %><br>
      <h3 class="text-green">Rating:</h3>
      <span class="star-cb-group">
       <%= f.radio_button :rating, 5, id: "rating-5"%><label for="rating-5">5</label>
