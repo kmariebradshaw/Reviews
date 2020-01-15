@@ -32,7 +32,7 @@ gem "devise", ">= 4.7.1"
 # gem 'mini_magick', '~> 4.8'
 gem "rubyzip", ">= 1.3.0"
 gem "activestorage", "= 5.2.2.1"
-gem "rack", ">= 2.0.6"
+gem "rack", ">= 2.0.8"
 gem "loofah", ">= 2.3.1"
 gem "railties", ">= 5.2.2.1"
 gem "actionview", ">= 5.2.2.1"
