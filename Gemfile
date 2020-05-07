@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.0'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.2.1'
 # Use sqlite3 as the database for Active Record
  gem 'sqlite3', '~> 1.3.6', group: :development
  gem 'pg', '0.18.1', group: :production# Use Puma as the app server
-gem "puma", ">= 3.12.2"
+gem "puma", ">= 4.3.3"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,7 +36,7 @@ gem "rack", ">= 2.0.8"
 gem "loofah", ">= 2.3.1"
 gem "railties", ">= 5.2.2.1"
 gem "actionview", ">= 5.2.2.1"
-gem "nokogiri", ">= 1.10.4"
+gem "nokogiri", ">= 1.10.8"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
