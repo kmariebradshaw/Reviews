@@ -1,0 +1,22 @@
+<div id="edit-review" class="main">
+
+<h3 class="tac">Edit Review</h1>
+
+<%= form_with(model: @review, local: true) do |f| %>
+ <h3 class="text-green">Email:</h3>
+ <%= f.text_field :author_email %>
+  <h3 class="text-green">First Name:</h3>
+  <%= f.text_field :author_first %>
+  <h3 class="text-green">Last Name:</h3>
+  <%= f.text_field :author_last %>
+    <h3 class="text-green">Review Text:</h3>
+
+    <p>
+      <%= f.text_area :text %>
+    </p>
+  <div class="button">
+      <span><%= f.submit %></span>
+    </div> 
+ 
+<% end %>
+</h3>
