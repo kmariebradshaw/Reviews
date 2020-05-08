@@ -108,7 +108,7 @@ a {text-decoration: none;}
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
 }
 /*new review*/
-.new_review {
+#edit-review form, .new_review {
     width: 80%;
     margin: 0 auto;
     min-width: 290px;
@@ -241,7 +241,7 @@ $checked-color: $green;
   font-size: 12pt; 
   margin-left: 5px;
 }
-.display-fav {
+.display-fav, .edit-review {
     font-weight: lighter;
     font-size: 10pt;
     text-decoration: underline;
