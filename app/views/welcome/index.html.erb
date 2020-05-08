@@ -20,7 +20,7 @@
           <%= form_for(review, remote: true) do |fa| %>
             <%= fa.hidden_field :staff_favorite, :value => true %>
             <%= fa.hidden_field :status, :value => "approved" %>
-            <%= fa.submit "favorite?", class: "ib decision favorited" %> |             <%= link_to 'edit', edit_review_path(review), class: "subscript edit-review" %>
+            <%= fa.submit "favorite?", class: "ib decision favorited display-fav" %> |             <%= link_to 'edit', edit_review_path(review), class: "subscript edit-review" %>
 
           <% end %>
       </div>
