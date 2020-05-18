@@ -2,7 +2,7 @@
   <h1 class="tac text-green nmb">Leave a Review</h1>
   <h2 class="tac nmt">We'd love to hear from you!</h2>
     <% if @review.errors.any? %>
-      <p class="tac">We're sorry, but an error occurred. If this continues, please contact us a gosockless@mygekks.com</p>
+      <p class="tac">We're sorry, but an error occurred. If this continues, please contact us a gosockless@mygekks.com. <br>Please make sure you have filled out all the required fields.</p>
        <p class="error subscript tac" style="display: none;">
           <% @review.errors.full_messages.each do |msg| %>
             <%= msg %>
