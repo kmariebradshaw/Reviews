@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 	end 
   def create
     @review = Review.new(review_params)
+        @product_approved = Product.where(:status => "approved")
 
     if @review.save
       redirect_to @review
