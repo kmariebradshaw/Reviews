@@ -4,7 +4,6 @@ require 'csv'
 class Review < ApplicationRecord
   belongs_to :product
   validates :rating, :inclusion => { :in => 1..5 }
-  validates :text, presence: true
 
   def self.to_csv
     CSV.generate do |csv|
