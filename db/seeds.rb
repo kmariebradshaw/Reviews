@@ -10,7 +10,7 @@ Product.create([{title: "Women's Closet Pack", category: "W"},{title:
 "Ballet Flats", category: "W"}, {title: "Loafers and Slip-Ons",
 category: "W"}, {title: "Sneakers and Lace-Ups", category: "W"}, {title: "Heels & Wedges",
 category: "W"},{title:"Men's Loafers & Slip-Ons", category: "M"}, {title: "Men's Sneakers & Lace-
-Ups", category: "M"}, {title: "Men's Closet Pack", category: "M"}])
+Ups", category: "M"}, {title: "Men's Closet Pack", category: "M"}, {title: "SLVR Gloves"}])
 
 require 'csv'
 
