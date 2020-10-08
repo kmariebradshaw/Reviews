@@ -15,7 +15,7 @@
           <% end %>
           <%= form_for(review, remote: true, :html => {:class => "ib"}) do |fa| %>
             <%= fa.hidden_field :status, :value => "hidden" %>
-            <%= fa.submit "𐄂", class: "decision denial ib" %>
+            <%= fa.submit "x", class: "decision denial ib" %>
           <% end %>
           <%= form_for(review, remote: true) do |fa| %>
             <%= fa.hidden_field :staff_favorite, :value => true %>
@@ -133,7 +133,7 @@
           <% else %>
             <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
               <%= fa.hidden_field :status, :value => "hidden" %>
-              <%= fa.submit "⨉", class: "decision-change ib" %>
+              <%= fa.submit "x", class: "decision-change ib" %>
             <% end %>
           <% end %>
         </div>
