@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.2.1'
+gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
- gem 'sqlite3', '~> 1.3.6', group: :development
+ gem 'sqlite3', group: :development
  gem 'pg', '0.18.1', group: :production# Use Puma as the app server
-gem "puma", ">= 4.3.3"
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,16 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem "devise", ">= 4.7.1"
+gem "devise", ">= 4.6.0"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem "rubyzip", ">= 1.3.0"
-gem "activestorage", "= 5.2.2.1"
-gem "rack", ">= 2.0.8"
-gem "loofah", ">= 2.3.1"
-gem "railties", ">= 5.2.2.1"
-gem "actionview", ">= 5.2.2.1"
-gem "nokogiri", ">= 1.10.8"
+gem "rubyzip", ">= 1.2.2"
+gem "activestorage", ">= 5.2.1.1"
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
