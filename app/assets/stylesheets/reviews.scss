@@ -254,6 +254,15 @@ $checked-color: $green;
   width: 100px;
 }
 /*user login / registration*/
+#error_explanation { 
+  text-align: center;
+  h2 { font-size: 12pt; }
+  ul { text-align: center; 
+    li {
+      display: block;
+      }
+  }
+ }
 .gekks-employee form input[type="email"], .gekks-employee form input[type="password"] {
     width: 60%;
     font-size: 12pt;
