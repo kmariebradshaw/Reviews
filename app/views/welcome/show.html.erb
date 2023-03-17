@@ -1,7 +1,7 @@
   <section class="background-beige main">
   <h2 class="tac">Live Stream</h2>
   <% @reviews.each do | review | %> 
-  <% if review.status == "approved" && review.staff_favorite != true %>
+  <% if review.status == "approved" %>
     <div class="flex-container">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
